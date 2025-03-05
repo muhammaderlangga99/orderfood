@@ -11,20 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // if (Schema::hasTable('foods') || Schema::hasTable('categories')) {
-        Schema::create('foods', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->string('image');
-            $table->integer('price');
-            $table->string('price_afterdiscount')->nullable();
-            $table->string('percent')->nullable();
-            $table->boolean('is_promo')->nullable();
-            $table->foreignId('categories_id');
-            $table->timestamps();
-        });
-        // }
+        if (Schema::hasTable('foods') || Schema::hasTable('categories')) {
+            Schema::create('foods', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->text('description');
+                $table->string('image');
+                $table->integer('price');
+                $table->string('price_afterdiscount')->nullable();
+                $table->string('percent')->nullable();
+                $table->boolean('is_promo')->nullable();
+                $table->foreignId('categories_id');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
